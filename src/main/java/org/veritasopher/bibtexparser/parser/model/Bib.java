@@ -5,6 +5,7 @@ import lombok.ToString;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Function;
 
 /**
  * BibTeX Class
@@ -14,6 +15,7 @@ import java.util.List;
 @ToString
 public class Bib {
 
+    @Getter
     private final List<Entry> entries;
 
     public Bib() {
@@ -22,6 +24,10 @@ public class Bib {
 
     public void addEntry(Entry entry) {
         this.entries.add(entry);
+    }
+
+    public String toString(Function<Bib, String> transform) {
+        return transform.apply(this);
     }
 
 }

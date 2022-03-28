@@ -4,6 +4,7 @@ import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.junit.Test;
+import org.veritasopher.bibtexparser.generator.JSONGenerator;
 import org.veritasopher.bibtexparser.parser.BibTeXParser;
 import org.veritasopher.bibtexparser.parser.model.Bib;
 
@@ -15,7 +16,16 @@ import static org.veritasopher.bibtexparser.Util.getFilePathInResource;
 public class AppTest {
 
     @Test
-    public void testParseMethod() throws IOException {
+    public void testJSONGenerator() {
+        BibTeXParser bibTeXParser = new BibTeXParser();
+        Bib bib = bibTeXParser.parse(getFilePathInResource("MyPublications.bib"));
+
+        JSONGenerator jsonGenerator = new JSONGenerator(bib);
+        jsonGenerator.generateToConsole();
+    }
+
+    @Test
+    public void testParseMethod() {
         BibTeXParser bibTeXParser = new BibTeXParser();
         Bib bib = bibTeXParser.parse(getFilePathInResource("MyPublications.bib"));
 

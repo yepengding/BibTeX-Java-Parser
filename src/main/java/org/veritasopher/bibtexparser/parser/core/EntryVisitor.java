@@ -23,14 +23,20 @@ public class EntryVisitor extends BibTeXBaseVisitor<Entry> {
 
     @Override
     public Entry visitArticle(BibTeX.ArticleContext ctx) {
-        return new Entry(EntryType.ARTICLE, getFieldsFromContext(ctx.field()));
+        return new Entry(EntryType.ARTICLE, ctx.IDENTIFIER().getText(), getFieldsFromContext(ctx.field()));
     }
 
     @Override
     public Entry visitInproceedings(BibTeX.InproceedingsContext ctx) {
-        return new Entry(EntryType.INPROCEEDINGS, getFieldsFromContext(ctx.field()));
+        return new Entry(EntryType.INPROCEEDINGS, ctx.IDENTIFIER().getText(), getFieldsFromContext(ctx.field()));
     }
 
+    /**
+     * Visit fields under a type of entry context
+     *
+     * @param fieldContexts FieldContext list
+     * @return Field list
+     */
     private List<Field> getFieldsFromContext(List<BibTeX.FieldContext> fieldContexts) {
         return fieldContexts.stream()
                 .map(fieldVisitor::visit)

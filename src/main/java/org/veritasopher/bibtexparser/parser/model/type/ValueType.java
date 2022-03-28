@@ -7,7 +7,7 @@ package org.veritasopher.bibtexparser.parser.model.type;
  */
 public enum ValueType {
 
-    INT {
+    INTEGER {
         @Override
         public Class<?> getTypeClass() {
             return Integer.class;

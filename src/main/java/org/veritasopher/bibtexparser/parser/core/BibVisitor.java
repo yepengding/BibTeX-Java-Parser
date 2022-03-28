@@ -20,6 +20,12 @@ public class BibVisitor extends BibTeXBaseVisitor<Bib> {
         this.entryVisitor = new EntryVisitor();
     }
 
+    /**
+     * Visit a BibTeX entry
+     *
+     * @param ctx entry context
+     * @return global Bib object
+     */
     @Override
     public Bib visitEntry(BibTeX.EntryContext ctx) {
         bib.addEntry(entryVisitor.visit(ctx));

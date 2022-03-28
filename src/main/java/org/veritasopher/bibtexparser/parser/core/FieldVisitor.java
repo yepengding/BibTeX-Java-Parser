@@ -22,14 +22,19 @@ public class FieldVisitor extends BibTeXBaseVisitor<Field> {
             throw new ParsingException("Filed (%s) has null value".formatted(ctx.key().IDENTIFIER().getText()));
         }
 
+        // Get key
         String key = ctx.key().IDENTIFIER().getText();
 
+        // Set value and value type
         if (ctx.value().STRING_LITERAL() != null) {
             // String literal
-            return new Field(key, ctx.value().STRING_LITERAL().getText(), ValueType.STRING);
+            String value = ctx.value().STRING_LITERAL().getText();
+            // Clear two ends
+            value = value.substring(1, value.length() - 1);
+            return new Field(key, value, ValueType.STRING);
         } else if (ctx.value().INTEGER_LITERAL() != null) {
             // Integer literal
-            return new Field(key, ctx.value().INTEGER_LITERAL().getText(), ValueType.INT);
+            return new Field(key, ctx.value().INTEGER_LITERAL().getText(), ValueType.INTEGER);
         } else {
             throw new ParsingException("The type of field (%s) value is not supported.");
         }

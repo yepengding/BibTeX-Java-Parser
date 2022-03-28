@@ -1,32 +1,20 @@
 package org.veritasopher.bibtexparser.parser.model;
 
-import lombok.Getter;
-import lombok.ToString;
 import org.veritasopher.bibtexparser.parser.model.type.EntryType;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Function;
 
 /**
- * BibTeX Entry Class
+ * BibTeX Entry Record
  *
  * @author Yepeng Ding
  */
-@ToString
-public class Entry {
+public record Entry(EntryType type, String id,
+                    List<Field> fields) {
 
-    @Getter
-    private final EntryType type;
-
-    private final List<Field> fields;
-
-    public Entry(EntryType type, List<Field> fields) {
-        this.type = type;
-        this.fields = fields;
-    }
-
-    public void addField(Field field) {
-        this.fields.add(field);
+    public String toString(Function<Entry, String> transform) {
+        return transform.apply(this);
     }
 
 }
