@@ -1,4 +1,4 @@
-// Generated from /Users/michaeltei/Projects/PracticeProjects/BibTeXParser/src/main/resources/BibTeX.g4 by ANTLR 4.9.2
+// Generated from /Users/michaeltei/Projects/PracticeProjects/BibTeXParser/BibTeXJavaParser/BibTeX-Grammar/BibTeX.g4 by ANTLR 4.9.2
 package org.veritasopher.bibtexparser.parser.base;
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;

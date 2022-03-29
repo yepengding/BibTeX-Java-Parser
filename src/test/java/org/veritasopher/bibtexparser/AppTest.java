@@ -41,6 +41,6 @@ public class AppTest {
         BibTeXParser bibTeXParser = new BibTeXParser();
         ParseTree parseTree = bibTeXParser.getParseTreeFromSource(charStream);
 
-        System.out.println(parseTree.getText());
+        System.out.println(parseTree.toStringTree());
     }
 }

@@ -59,7 +59,7 @@ public class JSONGenerator {
     }
 
     private String toStringLiteral(String string) {
-        return '"' + string.replaceAll("[{}]", "") + '"';
+        return '"' + string.replaceAll("[{}]", "").replace("\"", "\\\"") + '"';
     }
 
 }
