@@ -6,7 +6,7 @@ Transforming a BibTeX file to an object in memory or a semi-structured file on d
 
 ## Features
 
-- [ ] Full entry types support
+- [x] Full entry types support
 - [x] To an object of class `Bib`
 - [x] To a JSON file
 - [x] Library

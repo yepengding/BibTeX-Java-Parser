@@ -27,8 +27,63 @@ public class EntryVisitor extends BibTeXBaseVisitor<Entry> {
     }
 
     @Override
+    public Entry visitBook(BibTeX.BookContext ctx) {
+        return new Entry(EntryType.BOOK, ctx.IDENTIFIER().getText(), getFieldsFromContext(ctx.field()));
+    }
+
+    @Override
+    public Entry visitBooklet(BibTeX.BookletContext ctx) {
+        return new Entry(EntryType.BOOKLET, ctx.IDENTIFIER().getText(), getFieldsFromContext(ctx.field()));
+    }
+
+    @Override
+    public Entry visitInbook(BibTeX.InbookContext ctx) {
+        return new Entry(EntryType.INBOOK, ctx.IDENTIFIER().getText(), getFieldsFromContext(ctx.field()));
+    }
+
+    @Override
+    public Entry visitIncollection(BibTeX.IncollectionContext ctx) {
+        return new Entry(EntryType.INCOLLECTION, ctx.IDENTIFIER().getText(), getFieldsFromContext(ctx.field()));
+    }
+
+    @Override
     public Entry visitInproceedings(BibTeX.InproceedingsContext ctx) {
         return new Entry(EntryType.INPROCEEDINGS, ctx.IDENTIFIER().getText(), getFieldsFromContext(ctx.field()));
+    }
+
+    @Override
+    public Entry visitProceedings(BibTeX.ProceedingsContext ctx) {
+        return new Entry(EntryType.PROCEEDINGS, ctx.IDENTIFIER().getText(), getFieldsFromContext(ctx.field()));
+    }
+
+    @Override
+    public Entry visitManual(BibTeX.ManualContext ctx) {
+        return new Entry(EntryType.MANUAL, ctx.IDENTIFIER().getText(), getFieldsFromContext(ctx.field()));
+    }
+
+    @Override
+    public Entry visitMastersthesis(BibTeX.MastersthesisContext ctx) {
+        return new Entry(EntryType.MASTERTHESIS, ctx.IDENTIFIER().getText(), getFieldsFromContext(ctx.field()));
+    }
+
+    @Override
+    public Entry visitPhdthesis(BibTeX.PhdthesisContext ctx) {
+        return new Entry(EntryType.PHDTHESIS, ctx.IDENTIFIER().getText(), getFieldsFromContext(ctx.field()));
+    }
+
+    @Override
+    public Entry visitMisc(BibTeX.MiscContext ctx) {
+        return new Entry(EntryType.MISC, ctx.IDENTIFIER().getText(), getFieldsFromContext(ctx.field()));
+    }
+
+    @Override
+    public Entry visitTechreport(BibTeX.TechreportContext ctx) {
+        return new Entry(EntryType.TECHREPORT, ctx.IDENTIFIER().getText(), getFieldsFromContext(ctx.field()));
+    }
+
+    @Override
+    public Entry visitUnpublished(BibTeX.UnpublishedContext ctx) {
+        return new Entry(EntryType.UNPUBLISHED, ctx.IDENTIFIER().getText(), getFieldsFromContext(ctx.field()));
     }
 
     /**
