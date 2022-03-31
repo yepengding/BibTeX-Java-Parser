@@ -10,7 +10,7 @@ Transforming a BibTeX file to an object in memory or a semi-structured file on d
 - [x] To an object of class `Bib`
 - [x] To a JSON file
 - [x] Library
-- [ ] Standalone
+- [x] Standalone
 
 ## Demo
 
@@ -86,6 +86,67 @@ Output:
 ]
 ```
 
+## Usage
+
+### Standalone
+
+```
+usage: BibTeXJavaParser [options] [bib file paths]
+ -h,--help            print help.
+ -o,--output <path>   output directory path.
+ -t,--to <type>       output type (json, print).
+ -v,--version         print current version.
+```
+
+#### Examples
+
+Parse `test.bib` to a JSON file in the current directory.
+
+```shell
+BibTeXJavaParser test.bib
+```
+
+Or explicitly assign JSON type.
+
+```shell
+BibTeXJavaParser -t json test.bib
+```
+
+Parse `test.bib` to console.
+
+```shell
+BibTeXJavaParser -t console test.bib
+```
+
+Parse `test.bib` and `test1.bib` to JSON files in the output directory `./output`.
+
+```shell
+BibTeXJavaParser -o ./output test.bib test1.bib
+```
+
+### As a Library
+
+Generate `Bib` object.
+
+```java
+BibTeXParser bibTeXParser=new BibTeXParser();
+Bib bib=bibTeXParser.parse(filePath);
+```
+
+Generate JSON to console.
+
+```java
+JSONGenerator jsonGenerator=new JSONGenerator(bib);
+jsonGenerator.generateToConsole();
+```
+
+Generate JSON to file.
+
+```java
+JSONGenerator jsonGenerator=new JSONGenerator(bib);
+jsonGenerator.generateToFile(path);
+```
+
 ## Build
 
 Environment
@@ -99,25 +160,7 @@ Command
 mvn clean compile assembly:single
 ```
 
-## Usage
-
-### As a Library
-
-Get `Bib` object.
-
-```java
-BibTeXParser bibTeXParser = new BibTeXParser();
-Bib bib = bibTeXParser.parse(filePath);
-```
-
-Generate JSON to console.
-
-```java
-JSONGenerator jsonGenerator = new JSONGenerator(bib);
-jsonGenerator.generateToConsole();
-```
-
-## Related Project
+## Related Projects
 
 - [BibTeX Grammar](https://github.com/yepengding/BibTeX-Grammar)
 - [BibTeX JavaScript Parser](https://github.com/yepengding/bibtex-js-parser)

@@ -41,7 +41,7 @@ public class BibTeXParser {
             BibVisitor bibVisitor = new BibVisitor();
             bib = bibVisitor.visit(parseTree);
         } catch (IOException exception) {
-            throw new ParsingException(exception.getMessage());
+            throw new ParsingException(exception.getLocalizedMessage());
         }
 
         return bib;

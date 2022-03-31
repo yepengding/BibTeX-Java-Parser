@@ -12,10 +12,6 @@ public class Util {
 
             Files.writeString(pathToFile, content);
 
-            // Test writing
-            String fileContent = Files.readString(pathToFile);
-            System.out.println(fileContent);
-
         } catch (IOException e) {
             e.printStackTrace();
         }
