@@ -103,25 +103,25 @@ usage: BibTeXJavaParser [options] [bib file paths]
 Parse `test.bib` to a JSON file in the current directory.
 
 ```shell
-BibTeXJavaParser test.bib
+java -jar BibTeXJavaParser.jar test.bib
 ```
 
 Or explicitly assign JSON type.
 
 ```shell
-BibTeXJavaParser -t json test.bib
+java -jar BibTeXJavaParser.jar -t json test.bib
 ```
 
 Parse `test.bib` to console.
 
 ```shell
-BibTeXJavaParser -t console test.bib
+java -jar BibTeXJavaParser.jar -t console test.bib
 ```
 
 Parse `test.bib` and `test1.bib` to JSON files in the output directory `./output`.
 
 ```shell
-BibTeXJavaParser -o ./output test.bib test1.bib
+java -jar BibTeXJavaParser.jar -o ./output test.bib test1.bib
 ```
 
 ### As a Library
