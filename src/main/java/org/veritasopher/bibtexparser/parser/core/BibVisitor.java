@@ -28,7 +28,7 @@ public class BibVisitor extends BibTeXBaseVisitor<Bib> {
      */
     @Override
     public Bib visitEntry(BibTeX.EntryContext ctx) {
-        bib.addEntry(entryVisitor.visit(ctx));
+        bib.addEntry(ctx.accept(entryVisitor));
         return bib;
     }
 }

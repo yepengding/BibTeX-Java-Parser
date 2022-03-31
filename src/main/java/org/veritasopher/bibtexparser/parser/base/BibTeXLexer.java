@@ -1,4 +1,4 @@
-// Generated from /Users/michaeltei/Projects/PracticeProjects/BibTeXParser/BibTeXJavaParser/BibTeX-Grammar/BibTeXLexer.g4 by ANTLR 4.9.2
+// Generated from /BibTeX-Grammar/BibTeXLexer.g4 by ANTLR 4.9.2
 package org.veritasopher.bibtexparser.parser.base;
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.CharStream;

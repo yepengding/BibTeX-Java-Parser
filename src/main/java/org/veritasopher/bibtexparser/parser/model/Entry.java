@@ -10,7 +10,8 @@ import java.util.function.Function;
  *
  * @author Yepeng Ding
  */
-public record Entry(EntryType type, String id,
+public record Entry(EntryType type,
+                    String id,
                     List<Field> fields) {
 
     public String toString(Function<Entry, String> transform) {

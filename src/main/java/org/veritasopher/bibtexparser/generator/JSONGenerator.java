@@ -7,6 +7,7 @@ import org.veritasopher.bibtexparser.parser.model.Bib;
 import org.veritasopher.bibtexparser.parser.model.Entry;
 import org.veritasopher.bibtexparser.parser.model.Field;
 
+import java.nio.file.Path;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -26,11 +27,28 @@ public class JSONGenerator {
         this.gson = new GsonBuilder().setPrettyPrinting().create();
     }
 
+    /**
+     * Generate BibTeX JSON to the console
+     */
     public void generateToConsole() {
-        System.out.println(generateToString());
+        System.out.println(generateAsString());
     }
 
-    public String generateToString() {
+    /**
+     * Generate BibTeX JSON to the given output path
+     *
+     * @param path output path
+     */
+    public void generateToFile(String path) {
+        Util.writeToFile(generateAsString(), Path.of(path));
+    }
+
+    /**
+     * Generate BibTeX JSON string
+     *
+     * @return BibTeX JSON string
+     */
+    public String generateAsString() {
         String bibJSON = "[%s]".formatted(getEntriesJSON(bib));
         return gson.toJson(JsonParser.parseString(bibJSON));
     }
@@ -61,5 +79,6 @@ public class JSONGenerator {
     private String toStringLiteral(String string) {
         return '"' + string.replaceAll("[{}]", "").replace("\"", "\\\"") + '"';
     }
+
 
 }

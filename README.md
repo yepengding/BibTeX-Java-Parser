@@ -105,14 +105,14 @@ mvn clean compile assembly:single
 
 Get `Bib` object.
 
-```
+```java
 BibTeXParser bibTeXParser = new BibTeXParser();
 Bib bib = bibTeXParser.parse(filePath);
 ```
 
 Generate JSON to console.
 
-```
+```java
 JSONGenerator jsonGenerator = new JSONGenerator(bib);
 jsonGenerator.generateToConsole();
 ```
@@ -120,3 +120,4 @@ jsonGenerator.generateToConsole();
 ## Related Project
 
 - [BibTeX Grammar](https://github.com/yepengding/BibTeX-Grammar)
+- [BibTeX JavaScript Parser](https://github.com/yepengding/bibtex-js-parser)

@@ -22,6 +22,7 @@ public class AppTest {
 
         JSONGenerator jsonGenerator = new JSONGenerator(bib);
         jsonGenerator.generateToConsole();
+        jsonGenerator.generateToFile("./output.json");
     }
 
     @Test
