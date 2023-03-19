@@ -24,7 +24,6 @@ STRING_LITERAL=23
 INTEGER_LITERAL=24
 WS=25
 LINE_COMMENT=26
-'@inproceedings'=6
 '='=15
 ','=16
 '"'=17
