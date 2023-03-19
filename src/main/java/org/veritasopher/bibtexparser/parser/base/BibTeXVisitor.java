@@ -1,4 +1,4 @@
-// Generated from /Users/michaeltei/Projects/PracticeProjects/BibTeXParser/BibTeXJavaParser/BibTeX-Grammar/BibTeX.g4 by ANTLR 4.10.1
+// Generated from java-escape by ANTLR 4.11.1
 package org.veritasopher.bibtexparser.parser.base;
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
